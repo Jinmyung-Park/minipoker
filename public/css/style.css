@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+.button_title{
+    border-color: #957745;
+    font-size: 15px;
+    font-weight: bold;
+    color: #957745;
+    border-width: 5px;
+    border-radius: 50% 20% / 10% 40%;
+    transition: background-color .2s linear;
+}
+
+.button_title:hover {
+    background: #FFEFD5;
+}
+
+.footer{
+    font-size: 12px;
+    font-weight: bold;
+    font-style: italic;
+    color:white;
+
+    background: #323232	;
+}
+
+.navbar-brand:hover{
+    background: #FFB400	;
+    border-radius: 30px;
+}
+
+.navbar-brand{
+    transition: background-color .2s linear;
+    border-radius: 30px;
+}
+
+.login_border{
+    border-top-style : dotted;
+    border-top-width:4px;
+    border-color:#dcdcdc;
+}
