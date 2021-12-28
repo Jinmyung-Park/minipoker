@@ -8,20 +8,26 @@
 
             {!! Form::open(['route' => 'login.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
-                    {!! Form::email('email', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('name', 'Username', ['class' => 'login_label']) !!}
+                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password', 'Password') !!}
+                    {!! Form::label('password', 'Password', ['class' => 'login_label']) !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
-                </div>
-
-                {!! Form::submit('Log in', ['class' => 'btn btn-primary btn-block']) !!}
+                
+                <br />
+                                
+                {!! Form::submit('Log in', ['class' => 'pt-2 pb-2 btn-block login_button']) !!}
             {!! Form::close() !!}
 
-            {{-- ユーザ登録ページへのリンク --}}
-            <p class="mt-2">New user? {!! link_to_route('signup.get', 'Sign up now!') !!}</p>
+            {!! link_to_route('signup.get', 'Create Account', [], ['class' => 'btn-block login_button text-center']) !!}
+            {!! link_to_route('home', 'Cancel', [], ['class' => 'btn-block cancel_button text-center']) !!}
+
+                
+                </div>
+
+
         </div>
     </div>
     </div>

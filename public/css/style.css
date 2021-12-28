@@ -6,7 +6,7 @@
     font-weight: bold;
     color: #957745;
     border-width: 5px;
-    border-radius: 50% 20% / 10% 40%;
+    border-radius: 30px;
     transition: background-color .2s linear;
 }
 
@@ -19,8 +19,7 @@
     font-weight: bold;
     font-style: italic;
     color:white;
-
-    background: #323232	;
+    background: #282828;
 }
 
 .navbar-brand:hover{
@@ -38,3 +37,191 @@
     border-top-width:4px;
     border-color:#dcdcdc;
 }
+
+a {
+    color:#F4FFFF;
+}
+
+.username{
+    font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+    color:white;
+}
+
+.login_label{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color:#8B6331;
+}
+
+.form-control{
+    border-style : outset;
+    border-width:4px;
+    border-color:#dcdcdc;
+}
+
+.login_button{
+    border-style : outset;
+    border-width:4px;
+    border-radius: 30px;
+    transition: background-color .2s linear;
+    border-color: #957745;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    color:#8B6331;
+}
+
+.login_button:hover {
+    background: #FFEFD5;
+    color:#8B6331;
+    text-decoration: none;
+}
+
+
+.cancel_button{
+    border-style : outset;
+    border-width:4px;
+    border-radius: 30px;
+    transition: background-color .2s linear;
+    border-color: #969696;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    color:#969696;
+}
+
+.cancel_button:hover {
+    background: #FFEFD5;
+    color:#969696;
+    text-decoration: none;
+}
+
+.start_button{
+    color: #000000;
+    transition: background-color .2s linear;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+.start_button:hover{
+    background: #FFEFD5;
+
+}
+
+.stage_navbar{
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+    background: #343a40;
+    border-style : outset;
+    border-width:2px;
+    border-color: #FDF5E6;
+    color: #FFE641;
+}
+
+.bg_stageTop{
+    background-image: url('../images/wood.jpg');
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-style : outset;
+}
+
+.bg_stageMiddle{
+    background-image: url('../images/wood.jpg');
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-style : outset;
+    border-color: #F4FFFF;
+}
+
+.bg_stageBottom{
+    background: #a0a0a0;
+    border-radius: 15px;
+    border-style : outset;
+}
+
+.closed_card{
+    color: #FFE641;
+    font-size: 130%;
+    margin: 20px;
+    margin-top: 30px;
+    
+}
+
+.button_change{
+    margin-top: 10px;
+    background:#F4FFFF;
+    color: #000000;
+    font-size: 80%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    border-color: #F4FFFF;
+}
+
+.button_change:hover{
+    background: #F4FFFF;
+}
+
+.border_3{
+    border-color: #AE905E;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.button_determine{
+    border-color: #828282;
+    border-width: 2px;
+    border-radius: 15px;
+    margin-top: 10px;
+    background:#282828;
+    color: #F4FFFF;
+    font-size: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+
+}
+
+.button_determine:hover{
+    background: #FFFA78;
+
+}
+
+.card_size{
+    height: 100px;
+    width: 70px;
+}
+
+.help_card_size{
+    height: 60px;
+    width: 45px;
+}
+
+.stage_score{
+        color: #000000;
+ background:rgba(245,245,220,0.5);
+    font-size: 15px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.font_yellow{
+    color: #FFFA78;
+}
+
+.font_white{
+    color: #FFFFFF;
+}
+
+.font_skyblue{
+    color: #00FFFF;
+}
+.text_shadow{
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+}   

@@ -10,24 +10,12 @@
     </head>
 
     <body>
-
-        {{-- ナビゲーションバー --}}
-        @include('commons.navbar')
-
-        <div class="container">
-            {{-- エラーメッセージ --}}
-            @include('commons.error_messages')
-            @if (Auth::check())
-                @include('layouts.homeLayoutAfterlogin')
-            @else
-                @include('layouts.homeLayout')
-            @endif
-            @yield('content')
-            
+        <div class="center jumbotron bg-warning text-center text-danger">
+        <h1>Access Denied</h1>
+        <br />
+        {!! link_to_route('home', 'Return', [], ['class' => 'btn-block cancel_button text-center']) !!}
         </div>
-            <br />
-            @include('layouts.footer')
-
+ 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

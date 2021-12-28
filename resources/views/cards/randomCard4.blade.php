@@ -1,0 +1,83 @@
+@if($stageCheck -> cardOpenCheck !== 0)
+
+    @if($randomCard[3] == 4)
+        @if($randomCard[8] == 14)
+            <img class="card_size" src="{{ asset('images/[4,14].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 13)
+            <img class="card_size" src="{{ asset('images/[4,13].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 12)
+            <img class="card_size" src="{{ asset('images/[4,12].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 11)
+            <img class="card_size" src="{{ asset('images/[4,11].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 10)
+            <img class="card_size" src="{{ asset('images/[4,10].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 9)
+            <img class="card_size" src="{{ asset('images/[4,9].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 8)
+            <img class="card_size" src="{{ asset('images/[4,8].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 7)
+            <img class="card_size" src="{{ asset('images/[4,7].png') }}" alt="card4">  
+        @endif
+
+        
+    @elseif($randomCard[3] == 3)
+        @if($randomCard[8] == 14)
+            <img class="card_size" src="{{ asset('images/[3,14].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 13)
+            <img class="card_size" src="{{ asset('images/[3,13].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 12)
+            <img class="card_size" src="{{ asset('images/[3,12].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 11)
+            <img class="card_size" src="{{ asset('images/[3,11].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 10)
+            <img class="card_size" src="{{ asset('images/[3,10].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 9)
+            <img class="card_size" src="{{ asset('images/[3,9].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 8)
+            <img class="card_size" src="{{ asset('images/[3,8].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 7)
+            <img class="card_size" src="{{ asset('images/[3,7].png') }}" alt="card4"> 
+        @endif
+
+    
+    @elseif($randomCard[3] == 2)
+        @if($randomCard[8] == 14)
+            <img class="card_size" src="{{ asset('images/[2,14].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 13)
+            <img class="card_size" src="{{ asset('images/[2,13].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 12)
+            <img class="card_size" src="{{ asset('images/[2,12].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 11)
+            <img class="card_size" src="{{ asset('images/[2,11].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 10)
+            <img class="card_size" src="{{ asset('images/[2,10].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 9)
+            <img class="card_size" src="{{ asset('images/[2,9].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 8)
+            <img class="card_size" src="{{ asset('images/[2,8].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 7)
+            <img class="card_size" src="{{ asset('images/[2,7].png') }}" alt="card4"> 
+        @endif
+
+    
+    @elseif($randomCard[3] == 1)
+        @if($randomCard[8] == 14)
+            <img class="card_size" src="{{ asset('images/[1,14].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 13)
+            <img class="card_size" src="{{ asset('images/[1,13].png') }}" alt="card4">  
+        @elseif($randomCard[8] == 12)
+            <img class="card_size" src="{{ asset('images/[1,12].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 11)
+            <img class="card_size" src="{{ asset('images/[1,11].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 10)
+            <img class="card_size" src="{{ asset('images/[1,10].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 9)
+            <img class="card_size" src="{{ asset('images/[1,9].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 8)
+            <img class="card_size" src="{{ asset('images/[1,8].png') }}" alt="card4"> 
+        @elseif($randomCard[8] == 7)
+            <img class="card_size" src="{{ asset('images/[1,7].png') }}" alt="card4"> 
+        @endif
+    @endif
+
+@endif 

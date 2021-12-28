@@ -1,0 +1,10 @@
+{!! Form::hidden('cardNumbers1', $randomCard[0])!!}
+{!! Form::hidden('cardNumbers2', $randomCard[1])!!}
+{!! Form::hidden('cardNumbers3', $randomCard[2])!!}
+{!! Form::hidden('cardNumbers4', $randomCard[3])!!}
+{!! Form::hidden('cardNumbers5', $randomCard[4])!!}
+{!! Form::hidden('cardNumbers6', $randomCard[5])!!}
+{!! Form::hidden('cardNumbers7', $randomCard[6])!!}
+{!! Form::hidden('cardNumbers8', $randomCard[7])!!}
+{!! Form::hidden('cardNumbers9', $randomCard[8])!!}
+{!! Form::hidden('cardNumbers10', $randomCard[9])!!}
