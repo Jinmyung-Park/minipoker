@@ -8,7 +8,7 @@
             <div class = "font_white">
             Clear Score
             </div>
-            <div class="font_yellow">&nbsp;&nbsp;{!!$stageCheck->stage!!}</div>&nbsp;&nbsp;
+            <div class="font_yellow">&nbsp;&nbsp;{!!$stageScore->clearScore!!}</div>&nbsp;&nbsp;
             <div class = "font_white">
             Current Score
             </div>
@@ -31,14 +31,14 @@
         </div>
   
         <div class="col-xs-3">
-            &nbsp;&nbsp;
+            &nbsp;
         </div>    
   
         <div class="border_3 col-xs-3 d-flex justify-content-center">
         @include('cards.randomCard3')
         </div>
         <div class="col-xs-3">
-            &nbsp;&nbsp;
+            &nbsp;
         </div>    
   
         <div class="border_3 col-xs-3 d-flex justify-content-center">
@@ -46,7 +46,7 @@
         </div>
   
         <div class="col-xs-3">
-            &nbsp;&nbsp;
+            &nbsp;
         </div>    
   
         <div class="border_3 col-xs-3 d-flex justify-content-center">

@@ -15,10 +15,9 @@
                 <div class="form-group">
                     {!! Form::label('password', 'Password', ['class' => 'login_label']) !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
-                
                 <br />
                                 
-                {!! Form::submit('Log in', ['class' => 'pt-2 pb-2 btn-block login_button']) !!}
+            {!! Form::submit('Log in', ['class' => 'pt-2 pb-2 btn-block login_button']) !!}
             {!! Form::close() !!}
 
             {!! link_to_route('signup.get', 'Create Account', [], ['class' => 'btn-block login_button text-center']) !!}

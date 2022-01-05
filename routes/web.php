@@ -19,8 +19,11 @@ Route::group(['middleware'=> ['auth']],function(){
         
         Route::post('stage/cardChange', 'StageController@cardChange')->name('cardChange');
         Route::post('stage/cardDetermine', 'StageController@cardDetermine')->name('cardDetermine');
+    
+        Route::post('stage/nextStage', 'StageController@nextStage')->name('nextStage');
+
     });
 
+Route::resource('messages', 'MessagesController', ['only' => ['store']]);
+
 });
-
-

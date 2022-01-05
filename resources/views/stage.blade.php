@@ -11,12 +11,12 @@
 
 
     <body>
-
+{{--
     <script type="text/javascript">     //戻るボタン対策
     history.pushState(null, null, "/poker"); 
     window.onpopstate = function(event) { history.go(1); };
     </script>
-
+--}}
 
 
         @include('stage.navbar')
@@ -34,7 +34,7 @@
                 @include('stage.cardDisplayBottom')     {{--after open card--}}
                 @include('stage.cardDetermine')
             @else
-                {{$result}}
+                @include('stage.result')
             @endif
 
         @endif

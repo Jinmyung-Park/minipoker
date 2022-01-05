@@ -17,7 +17,8 @@ class Stagecheck extends Model
         'cardDetermine',
         'stage', 
         'score',
-        'highscore'
+        'highscore',
+        'stageClear',
         ];
 
         public function user()

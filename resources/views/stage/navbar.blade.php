@@ -13,13 +13,16 @@
                 </div>
 
         </div>
-
-        <i class="fas fa-running mr-2"></i><h class="mr-5">{!!$stageCheck->stage!!}</h>   {{--stage 変数が入る予定--}}
+        @if($stageCheck->stage<=40)
+        <i class="fas fa-running mr-2"></i><h class="mr-5">{!!$stageCheck->stage!!}</h>   
+        @else
+        <i class="fas fa-running mr-2"></i><h class="mr-5">ALL CLEAR</h>   
+        @endif
         <i class="fas fa-star mr-2"></i><h>{!!$stageCheck->score!!}</h>
 
     </nav>
        
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex justify-content-center border-top">
-        <a class="text-white username">Username : {!!$user->name!!}</a>
+        <a2 class="username">Username : {!!$user->name!!}</a2>
     </nav>
 </header>

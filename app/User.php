@@ -15,6 +15,16 @@ class User extends Authenticatable
         return $this->hasMany(Stagecheck::class);
     }
     
+    public function stageScore()
+    {
+        return $this->hasMany(stageScore::class);
+    }
+    
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];

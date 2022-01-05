@@ -17,7 +17,7 @@ class StageController extends Controller
         {
             $userStageInfo = $user -> stagechecks();         ##hasmany stagecheck関数   
     
-                if($stageCheck = \App\StageCheck::where('user_id',$id)->first() == null){                ##初期データ生成
+                if($stageCheck = \App\Stagecheck::where('user_id',$id)->first() == null){                ##初期データ生成
                 
                     $userStageInfo->create([
                         'cardOpenCheck' => '0',
@@ -29,7 +29,7 @@ class StageController extends Controller
                         'cardDetermine' => '0',
                         'stage'=>'1', 
                         'score' => '0', 
-                        'highscore' => '0',
+                        'stageClear' => '0',
                         ]);
                 }else{
                     $userStageInfo->update([
@@ -42,14 +42,17 @@ class StageController extends Controller
                         'cardDetermine' => '0',
                         'stage'=>'1', 
                         'score' => '0', 
+                        'stageClear' => '0',
                         ]);
                 }
                 
             $stageCheck = \App\StageCheck::where('user_id',$id)->first();
+            $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
             
             $data = [
                 'user' => $user,
                 'stageCheck' => $stageCheck,
+                'stageScore' => $stageScore,
                 ];
                 
             return view('stage',$data);
@@ -74,6 +77,7 @@ class StageController extends Controller
                 ]);
         
         $stageCheck = \App\StageCheck::where('user_id',$cardOpenCheck)->first();
+        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
         
         $cardShape  = array(1,2,3,4);     ##　1=♧ , 2=♢ , 3=♡, 4=♤
         $cardNumber = array(7,8,9,10,11,12,13,14);
@@ -95,6 +99,7 @@ class StageController extends Controller
             'stageCheck' => $stageCheck,
             'randomCard' => $randomCard,
             'slotNumber' => $slotNumber,
+            'stageScore' => $stageScore,
             ];
             
         return view('stage',$data);
@@ -192,6 +197,7 @@ class StageController extends Controller
         }
         
         $stageCheck = \App\StageCheck::where('user_id',$cardChange)->first();
+        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
 
         $data = [
             'user' => $user,
@@ -199,6 +205,7 @@ class StageController extends Controller
             'randomCard' => $randomCard,
             'slotNumber' => $slotNumber,
             'cardNumbers' => $cardNumbers,
+            'stageScore' => $stageScore,
             ];
             
         return view('stage',$data);
@@ -448,17 +455,74 @@ class StageController extends Controller
         ]);
         
         $stageCheck = \App\StageCheck::where('user_id',$cardDetermine)->first();
+        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
                 
 //////////////////////////////////////////////////////////////////////////////////////////      
-  
+        if( ($stageCheck->score) >= ($stageScore->clearScore) ){
+              $userStageInfo->update([
+                    'stageClear' => $stageCheck->stageClear+1      #####ㅐㅐㅐㅐㅐㅐㅐㅐ
+                    ]);
+        }
+        $stageCheck = \App\StageCheck::where('user_id',$cardDetermine)->first();
+        
         $data = [
             'user' => $user,
             'stageCheck' => $stageCheck,
             'randomCard' => $randomCard,
             'result' => $result,
+            'cardScore' => $cardScore,
+            'stageScore' => $stageScore,
             ];
             
         return view('stage',$data);
     }
+    
+    public function nextStage($id)
+    {   
+        $data = []; 
+            
+        $user = \Auth::user();
+        $userStageInfo = $user -> stagechecks();
+        $stageCheck = \App\StageCheck::where('user_id',$id)->first();
+        
+        $userStageInfo->update([
+                        'cardOpenCheck' => '0',
+                        'cardChange1' => '0',
+                        'cardChange2' => '0',
+                        'cardChange3' => '0',
+                        'cardChange4' => '0',
+                        'cardChange5' => '0',
+                        'cardDetermine' => '0',
+                        'stage' => $stageCheck->stage+1,   ##oooooo
+                        ]);
+        
+        $stageCheck = \App\StageCheck::where('user_id',$id)->first();
+        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
+                        
+                        
+        if(($stageCheck->stage)<41 && $_SERVER['REQUEST_URI']=="/users/$user->id/stage/nextStage" && ($stageCheck->stageClear)+1 == $stageCheck->stage ) 
+        {
+            $data = [
+                'user' => $user,
+                'stageCheck' => $stageCheck,
+                'stageScore' => $stageScore,
+                ];
+                
+            return view('stage',$data);
+                    
+        }elseif(($stageCheck->stage)>=41 && $_SERVER['REQUEST_URI']=="/users/$user->id/stage/nextStage" && ($stageCheck->stageClear)+1 == $stageCheck->stage ){
+            $data = [
+                'user' => $user,
+                'stageCheck' => $stageCheck,
+                'stageScore' => $stageScore,
+                ];
+                
+            return view('allClear',$data);
+        }
+        else{
+            return view('commons.access_deny');
+        }
+    }
+
 
 }

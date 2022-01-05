@@ -15,7 +15,7 @@
             </div>
     </nav>           
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark d-flex justify-content-center border-top">
-            <a class="text-white username">Username : {!!$user->name!!}</a>
+            <a2 class="username">Username : {!!$user->name!!}</a2>
     </nav>
 
         @endif
