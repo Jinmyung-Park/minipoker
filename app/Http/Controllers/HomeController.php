@@ -61,8 +61,8 @@ class HomeController extends Controller
         $topRank = \App\Stagecheck::orderBy('highscore', 'desc')->get();
 
 
-        $ranking = DB::select("SELECT i1.user_id AS 'user_id',i1.highscore AS 'highscore',(SELECT count(i2.highscore) FROM stagechecks i2 WHERE i1.highscore < i2.highscore) + 1 AS 'rank'
-                               FROM stagechecks i1
+        $ranking = DB::select("SELECT user_id AS 'user_id',highscore AS 'highscore',(SELECT count(highscore) FROM stagechecks WHERE highscore < highscore) + 1 AS 'rank'
+                               FROM stagechecks
                                ORDER BY highscore");
                                
         $key = array_search($user->id, array_column($ranking, 'user_id'));
