@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MessagesController extends Controller
 {
@@ -62,6 +63,13 @@ class MessagesController extends Controller
                         
         $topRank = \App\StageCheck::orderBy('highscore', 'desc')->get();
         
+        $ranking = DB::select("SELECT i1.user_id AS 'user_id',i1.highscore AS 'highscore',(SELECT count(i2.highscore) FROM stagechecks i2 WHERE i1.highscore < i2.highscore) + 1 AS 'rank'
+                               FROM stagechecks i1
+                               ORDER BY highscore");
+                               
+        $key = array_search($user->id, array_column($ranking, 'user_id'));
+        $userRank = $ranking[$key]->rank;
+        
         $top1 = \App\User::where('id',$topRank[0]->user_id)->first();
         $top2 = \App\User::where('id',$topRank[1]->user_id)->first();
         $top3 = \App\User::where('id',$topRank[2]->user_id)->first();
@@ -71,6 +79,7 @@ class MessagesController extends Controller
         $data = ['user' => $user,
                  'messages' => $messages,
                  'stageCheck' => $stageCheck,
+                 'userRank' => $userRank,
                  'top1' => $top1,
                  'top2' => $top2,
                  'top3' => $top3,

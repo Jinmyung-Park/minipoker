@@ -541,8 +541,43 @@ background-size: 100% 100%;
 .border_b{
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
-    border-bottom-style : solid;
-    border-color: #FFD228;
+    border-bottom-style: ridge;
+    border-color: #EBC680;
+}
+
+.bg_ranking{
+    background-image: url('../images/home.jpg');
+    opacity: 0.8;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    border-style : outset;
+    background-size: cover;
+    background-size: 100% 100%;
+}
+
+.ranking_board{
+    margin: 5%;
+    height: 500px;
+
+background-size: 100% 100%;
+}
+
+.ranking_title{
+        width: 85%;
+        margin: 1%;
+        margin-left: 7.5%;
+        height: auto;
+        border-radius: 15px;
+
+        border-style : outset;
+        border-color : white;
+        opacity: 0.8;
+        text-align-last: center;
+        color : white;
+        font: italic small-caps bold 16px/2 cursive;
+        font-size: 50px;
+        background: linear-gradient( to bottom, white,orange,white );
 }
 
 /* SCROLL */
@@ -552,3 +587,28 @@ background-size: 100% 100%;
     background: linear-gradient(to bottom, #FFFFFF, #F4A460); 
 }
 ::-webkit-scrollbar-button { display: none; }
+
+
+.rank_frame{
+    font-family: cursive;
+    border-radius: 10px;
+    border-style: dotted;
+    border-width:5px;
+    border-color:#ffffff;
+    margin-left: 7%;
+  
+}
+
+.return_icon:hover{
+    background: #FFB400;
+    border-radius: 30px;
+}
+
+.return_icon{
+    transition: background-color .2s linear;
+    border-radius: 30px;
+    font-size: 14px;
+    color: #B4B4DC;
+    background: #FFFFFF;
+    border-style : outset;
+}

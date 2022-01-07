@@ -11,12 +11,12 @@
 
 
     <body>
-{{--
+
     <script type="text/javascript">     //戻るボタン対策
     history.pushState(null, null, "/poker"); 
     window.onpopstate = function(event) { history.go(1); };
     </script>
---}}
+
 
 
         @include('stage.navbar')

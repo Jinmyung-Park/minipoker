@@ -1,24 +1,23 @@
-{{--
 <script type="text/javascript">     //戻るボタン対策
 history.pushState(null, null, "/poker"); 
 window.onpopstate = function(event) { history.go(1); };
 </script>
---}}
+
 <br />
  <div class="col-md-12 bg_home p-2 m-auto">
  
     <div class = "row mt-4">
         <h5 class="col-sm-3 offset-sm-2 border_b m-auto font-italic">
             <i class="fas fa-trophy m-2 ranking_icon1"></i>
-            <span class="ranking_text1 ranking_shadow">1st &nbsp;{!!$top1->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white">{!!$topRank[0]->highscore!!}</span>
+            <span class="ranking_text1 ranking_shadow">1st &nbsp;{!!$top1->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[0]->highscore!!}</span>
         </h5>
         <h5 class="col-sm-3 border_b m-auto font-italic">
             <i class="fas fa-trophy m-2 ranking_icon2"></i>
-            <span class="ranking_text1 ranking_shadow">2nd &nbsp;{!!$top2->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white">{!!$topRank[1]->highscore!!}</span>
+            <span class="ranking_text1 ranking_shadow">2nd &nbsp;{!!$top2->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[1]->highscore!!}</span>
         </h5>
         <h5 class="col-sm-3 border_b m-auto font-italic">
             <i class="fas fa-trophy m-2 ranking_icon3"></i>
-           <span class="ranking_text1 ranking_shadow">3rd &nbsp;{!!$top3->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white">{!!$topRank[2]->highscore!!}</span>
+           <span class="ranking_text1 ranking_shadow">3rd &nbsp;{!!$top3->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[2]->highscore!!}</span>
         </h5>
 
     </div>
@@ -38,7 +37,7 @@ window.onpopstate = function(event) { history.go(1); };
 
                 <div class = "m-2 ml-1">
                     <span class = "font_title text_shadow ">Name</span><br />&nbsp;&nbsp;<span class = "font_skyblue text_shadow font_info">{!!$user->name!!}</span><br />
-                    <span class = "font_title text_shadow ">Ranking</span><br />&nbsp;&nbsp;<span class = "font_skyblue text_shadow font_info">{!!$user->name!!}</span><br />
+                    <span class = "font_title text_shadow ">Ranking</span><br />&nbsp;&nbsp;<span class = "font_skyblue text_shadow font_info">{!!$userRank!!}</span><br />
                     <span class = "font_title text_shadow ">Highscore</span><br />&nbsp;&nbsp;<span class = "font_skyblue text_shadow font_info">{!!$stageCheck->highscore!!}</span><br />
                     <span class = "font_title text_shadow ">Money</span><br />&nbsp;&nbsp;<span class = "font_skyblue text_shadow font_info">0（未実装機能）</span><br />
                     <span class = "font_title text_shadow ">Chance</span><br />&nbsp;&nbsp;<span class = "font_skyblue text_shadow font_info">0（未実装機能）</span><br />
