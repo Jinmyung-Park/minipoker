@@ -13,11 +13,19 @@ window.onpopstate = function(event) { history.go(1); };
         </h5>
         <h5 class="col-sm-3 border_b m-auto font-italic">
             <i class="fas fa-trophy m-2 ranking_icon2"></i>
-            <span class="ranking_text1 ranking_shadow">2nd &nbsp;{!!$top2->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[1]->highscore!!}</span>
+            @if($userCount>=2)
+                <span class="ranking_text1 ranking_shadow">2nd &nbsp;{!!$top2->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[1]->highscore!!}</span>
+            @else
+                <span class="ranking_text1 ranking_shadow">2nd -</span>
+            @endif
         </h5>
         <h5 class="col-sm-3 border_b m-auto font-italic">
             <i class="fas fa-trophy m-2 ranking_icon3"></i>
-           <span class="ranking_text1 ranking_shadow">3rd &nbsp;{!!$top3->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[2]->highscore!!}</span>
+            @if($userCount>=3)
+                <span class="ranking_text1 ranking_shadow">3rd &nbsp;{!!$top3->name!!}</span>&nbsp;&nbsp;&nbsp;<span class = "font_white mb-2">{!!$topRank[2]->highscore!!}</span>
+            @else
+                <span class="ranking_text1 ranking_shadow">3rd -</span>
+            @endif
         </h5>
 
     </div>

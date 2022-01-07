@@ -54,13 +54,13 @@
                     </div>
 
                     <div class = "rank_frame mt-2 col-sm-5">
- 
-                        <i class="fas fa-trophy m-1 ranking_icon1"></i>
-                        <span class = "font_yellow text_shadow">{!!($counter[1])!!}</span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class = "font_skyblue text_shadow">{!!$userRanking[$counter[1]-1]->name!!}</span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class = "font_white text_shadow">{!!$userRanking[$counter[1]-1]->highscore!!}</span>
-                        <br />
-                        
+                        @if($counter[2]>=2)
+                            <i class="fas fa-trophy m-1 ranking_icon1"></i>
+                            <span class = "font_yellow text_shadow">{!!($counter[1])!!}</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class = "font_skyblue text_shadow">{!!$userRanking[$counter[1]-1]->name!!}</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class = "font_white text_shadow">{!!$userRanking[$counter[1]-1]->highscore!!}</span>
+                            <br />
+                        @endif
                         @while($counter[1]<=18 && ($counter[1]+1)<$counter[2])
     
                             @if($counter[1]<=4)

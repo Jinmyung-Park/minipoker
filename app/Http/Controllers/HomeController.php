@@ -67,15 +67,26 @@ class HomeController extends Controller
                                ON users.id = stagechecks.user_id
                                ORDER BY highscore DESC");
         
+        $userCount = count($ranking);
                     
-        
         $key = array_search($user->name, array_column($ranking, "name"));
         
         $userRank = $ranking[$key]->name;
 
+        $top1 = [];
+        $top2 = [];
+        $top3 = [];
+        
         $top1 = \App\User::where('id',$topRank[0]->user_id)->first();
-        $top2 = \App\User::where('id',$topRank[1]->user_id)->first();
-        $top3 = \App\User::where('id',$topRank[2]->user_id)->first();
+        
+        if($userCount>=2)
+        {
+            $top2 = \App\User::where('id',$topRank[1]->user_id)->first();
+        }
+        
+        if($userCount>=3){
+            $top3 = \App\User::where('id',$topRank[2]->user_id)->first();
+        }
         
         $data = [
                 'user' => $user,
@@ -86,6 +97,7 @@ class HomeController extends Controller
                 'top2' => $top2,
                 'top3' => $top3,
                 'topRank' =>$topRank,
+                'userCount' =>$userCount,
                 
             ];
 
