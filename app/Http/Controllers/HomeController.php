@@ -66,9 +66,12 @@ class HomeController extends Controller
                                INNER JOIN stagechecks
                                ON users.id = stagechecks.user_id
                                ORDER BY highscore DESC");
-                               
-        $key = array_search($user->id, array_column($ranking, 'user_id'));
-        $userRank = $ranking[$key]->rank;
+        
+                    
+        
+        $key = array_search($user->name, array_column($ranking, "name"));
+        
+        $userRank = $ranking[$key]->name;
 
         $top1 = \App\User::where('id',$topRank[0]->user_id)->first();
         $top2 = \App\User::where('id',$topRank[1]->user_id)->first();
