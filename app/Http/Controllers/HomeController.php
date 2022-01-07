@@ -68,10 +68,14 @@ class HomeController extends Controller
                                ORDER BY highscore DESC");
         
         $userCount = count($ranking);
+        
+        for($i = 0 ; $i<=$userCount-1 ; $i++){
+            $ranking[$i]->rank=$i+1;
+        }
                     
         $key = array_search($user->name, array_column($ranking, "name"));
         
-        $userRank = $ranking[$key]->name;
+        $userRank = $ranking[$key]->rank;
 
         $top1 = [];
         $top2 = [];

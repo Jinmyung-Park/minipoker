@@ -63,16 +63,38 @@ class MessagesController extends Controller
                         
         $topRank = \App\StageCheck::orderBy('highscore', 'desc')->get();
         
-        $ranking = DB::select("SELECT i1.user_id AS 'user_id',i1.highscore AS 'highscore',(SELECT count(i2.highscore) FROM stagechecks i2 WHERE i1.highscore < i2.highscore) + 1 AS 'rank'
-                               FROM stagechecks i1
-                               ORDER BY highscore");
-                               
-        $key = array_search($user->id, array_column($ranking, 'user_id'));
+        $ranking = DB::select("SELECT name,highscore
+                               FROM users
+                               INNER JOIN stagechecks
+                               ON users.id = stagechecks.user_id
+                               ORDER BY highscore DESC");
+        
+        $userCount = count($ranking);
+        
+        for($i = 0 ; $i<=$userCount-1 ; $i++){
+            $ranking[$i]->rank=$i+1;
+        }
+                    
+        $key = array_search($user->name, array_column($ranking, "name"));
+        
         $userRank = $ranking[$key]->rank;
+
+        
+        $top1 = [];
+        $top2 = [];
+        $top3 = [];
         
         $top1 = \App\User::where('id',$topRank[0]->user_id)->first();
-        $top2 = \App\User::where('id',$topRank[1]->user_id)->first();
-        $top3 = \App\User::where('id',$topRank[2]->user_id)->first();
+        
+        if($userCount>=2)
+        {
+            $top2 = \App\User::where('id',$topRank[1]->user_id)->first();
+        }
+        
+        if($userCount>=3){
+            $top3 = \App\User::where('id',$topRank[2]->user_id)->first();
+        }
+        
         
         $stageCheck = \App\StageCheck::where('user_id',$user->id)->first();
         
@@ -84,6 +106,7 @@ class MessagesController extends Controller
                  'top2' => $top2,
                  'top3' => $top3,
                  'topRank' =>$topRank,
+                 'userCount' =>$userCount,
         ];
         
         return view('home',$data);
