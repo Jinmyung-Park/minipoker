@@ -47,7 +47,7 @@ class StageController extends Controller
                 }
                 
             $stageCheck = \App\StageCheck::where('user_id',$id)->first();
-            $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
+            $stageScore = \App\stageScore::where('id',$stageCheck->stage)->first();
             
             $data = [
                 'user' => $user,
@@ -77,7 +77,7 @@ class StageController extends Controller
                 ]);
         
         $stageCheck = \App\StageCheck::where('user_id',$cardOpenCheck)->first();
-        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
+        $stageScore = \App\stageScore::where('id',$stageCheck->stage)->first();
         
         $cardShape  = array(1,2,3,4);     ##　1=♧ , 2=♢ , 3=♡, 4=♤
         $cardNumber = array(7,8,9,10,11,12,13,14);
@@ -197,7 +197,7 @@ class StageController extends Controller
         }
         
         $stageCheck = \App\StageCheck::where('user_id',$cardChange)->first();
-        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
+        $stageScore = \App\stageScore::where('id',$stageCheck->stage)->first();
 
         $data = [
             'user' => $user,
@@ -455,7 +455,7 @@ class StageController extends Controller
         ]);
         
         $stageCheck = \App\StageCheck::where('user_id',$cardDetermine)->first();
-        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
+        $stageScore = \App\stageScore::where('id',$stageCheck->stage)->first();
                 
 //////////////////////////////////////////////////////////////////////////////////////////      
         if( ($stageCheck->score) >= ($stageScore->clearScore) ){
@@ -497,7 +497,7 @@ class StageController extends Controller
                         ]);
         
         $stageCheck = \App\StageCheck::where('user_id',$id)->first();
-        $stageScore = \App\stageScore::where('stage',$stageCheck->stage)->first();
+        $stageScore = \App\stageScore::where('id',$stageCheck->stage)->first();
                         
                         
         if(($stageCheck->stage)<41 && $_SERVER['REQUEST_URI']=="/users/$user->id/stage/nextStage" && ($stageCheck->stageClear)+1 == $stageCheck->stage ) 
