@@ -42,12 +42,18 @@ class MessagesController extends Controller
         $request->user()->messages()->create([
             'content' => $request->content,
             'user_id' => $user->id,
-            'user_name' => $user->name,
             'user_stage' => $stageCheck->stage,
             'user_score' => $stageCheck->score,
             ]);
 
         $messages = \App\Message::orderBy('created_at', 'desc')->get();
+
+        $usernames = DB::select("SELECT name,content,user_stage,user_score,messages.created_at
+                               FROM users
+                               INNER JOIN messages
+                               ON users.id = messages.user_id
+                               ORDER BY created_at ASC");
+                               
         $userStageInfo->update([
                         'cardOpenCheck' => '0',
                         'cardChange1' => '0',
@@ -107,6 +113,7 @@ class MessagesController extends Controller
                  'top3' => $top3,
                  'topRank' =>$topRank,
                  'userCount' =>$userCount,
+                 'usernames' =>$usernames,
         ];
         
         return view('home',$data);

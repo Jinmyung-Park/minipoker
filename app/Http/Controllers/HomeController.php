@@ -34,6 +34,13 @@ class HomeController extends Controller
               }
 
         $messages = \App\Message::orderBy('created_at', 'desc')->get();
+       
+
+        $usernames = DB::select("SELECT name,content,user_stage,user_score,messages.created_at
+                               FROM users
+                               INNER JOIN messages
+                               ON users.id = messages.user_id
+                               ORDER BY created_at ASC");
 
         $userStageInfo = $user -> stagechecks();   
         $stageCheck = \App\StageCheck::where('user_id',$user->id)->first();
@@ -102,6 +109,7 @@ class HomeController extends Controller
                 'top3' => $top3,
                 'topRank' =>$topRank,
                 'userCount' =>$userCount,
+                'usernames' =>$usernames,
                 
             ];
 

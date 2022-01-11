@@ -10,7 +10,6 @@ class Message extends Model
             'content',
             'user_stage',
             'user_score',
-            'user_name',
             'user_id',
         ];
         

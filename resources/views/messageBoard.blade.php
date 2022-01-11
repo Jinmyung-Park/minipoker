@@ -6,8 +6,7 @@
 
                 <div class="media-body">
                     <div class = "m-2 message_box2">
-
-                        <h5>&nbsp;&nbsp;<span class = "user_name">{!! $message->user_name !!}</span>
+                        <h5>&nbsp;&nbsp;<span class = "user_name">{!! $usernames[$message->id-1]->name !!}</span>
                         <br />&nbsp;&nbsp;&nbsp;&nbsp;stage<span class = "font_skyblue text_shadow">{!! $message->user_stage !!}</span>  score 
                         <span class = "font_yellow text_shadow">{!! $message->user_score !!}</h5></span>
                         <p class = "message_box p-2">{!! $message->content !!}</p>
