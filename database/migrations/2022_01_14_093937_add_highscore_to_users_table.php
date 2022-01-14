@@ -14,7 +14,7 @@ class AddHighscoreToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('highscore');
+            $table->unsignedBigInteger('highscore')->default(5);
         });
         
         $ranking = DB::select("SELECT name,stagechecks.highscore
@@ -40,6 +40,7 @@ class AddHighscoreToUsersTable extends Migration
                                WHERE users.name = '$highScoreM'
                                 ");
             
+
             DB::table("users")->where('name', $test[0]->name)->update(['highscore' => $test[0]->highscore]);
 
         }
