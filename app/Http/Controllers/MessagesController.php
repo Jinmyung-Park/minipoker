@@ -37,6 +37,9 @@ class MessagesController extends Controller
             $userStageInfo->update([
                 'highscore' => $stageCheck->score,
             ]);
+            $user->update([
+                'highscore' => $stageCheck->score,
+            ]);
         }
        
         $request->user()->messages()->create([
@@ -69,7 +72,7 @@ class MessagesController extends Controller
                         
         $topRank = \App\StageCheck::orderBy('highscore', 'desc')->get();
         
-        $ranking = DB::select("SELECT name,highscore
+        $ranking = DB::select("SELECT name,stagechecks.highscore
                                FROM users
                                INNER JOIN stagechecks
                                ON users.id = stagechecks.user_id

@@ -31,6 +31,8 @@ class HomeController extends Controller
                         'highscore' => '0',
                         'stageClear' => '0',
                         ]);
+                    
+
               }
 
         $messages = \App\Message::orderBy('created_at', 'desc')->get();
@@ -42,11 +44,17 @@ class HomeController extends Controller
                                ON users.id = messages.user_id
                                ORDER BY created_at ASC");
 
-        $userStageInfo = $user -> stagechecks();   
+        $userStageInfo = $user -> stagechecks(); 
+        
         $stageCheck = \App\StageCheck::where('user_id',$user->id)->first();
         
+        $user->update(['highscore' => $stageCheck->highscore]);
+
         if($stageCheck->score > $stageCheck->highscore){
             $userStageInfo->update([
+                'highscore' => $stageCheck->score,
+            ]);
+            $user->update([
                 'highscore' => $stageCheck->score,
             ]);
         }
@@ -68,7 +76,7 @@ class HomeController extends Controller
         $topRank = \App\Stagecheck::orderBy('highscore', 'desc')->get();
 
 
-        $ranking = DB::select("SELECT name,highscore
+        $ranking = DB::select("SELECT name,stagechecks.highscore
                                FROM users
                                INNER JOIN stagechecks
                                ON users.id = stagechecks.user_id
@@ -130,10 +138,9 @@ class HomeController extends Controller
             $user = \Auth::user();
         }
         
-        $userRanking = DB::select("SELECT name,highscore
+
+       $userRanking = DB::select("SELECT name,users.highscore
                                FROM users
-                               INNER JOIN stagechecks
-                               ON users.id = stagechecks.user_id
                                ORDER BY highscore DESC");
         
         $userCount = count($userRanking);
