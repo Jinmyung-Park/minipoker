@@ -14,7 +14,7 @@ class AddHighscoreToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('highscore')->default(0);
+            $table->unsignedBigInteger('highscore')->default(5);    ##引き続き開発するときに０に修正必要　HEROKUには5で作成されている
         });
         
         $ranking = DB::select("SELECT name,stagechecks.highscore

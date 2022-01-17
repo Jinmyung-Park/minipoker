@@ -139,7 +139,7 @@ class HomeController extends Controller
         }
         
 
-       $userRanking = DB::select("SELECT name,users.highscore
+        $userRanking = DB::select("SELECT name,users.highscore
                                FROM users
                                ORDER BY highscore DESC");
         
@@ -164,19 +164,8 @@ class HomeController extends Controller
             $user = \Auth::user();
         }
         
-        $userRanking = DB::select("SELECT name,highscore
-                               FROM users
-                               INNER JOIN stagechecks
-                               ON users.id = stagechecks.user_id
-                               ORDER BY highscore DESC");
-        
-        $userCount = count($userRanking);
-        $counter = [1,2,$userCount];
-
         $data = [
                 'user' => $user,
-                'userRanking' => $userRanking,
-                'counter' => $counter,
             ];
         
         return view('homeHelp',$data);
